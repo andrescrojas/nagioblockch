@@ -30,7 +30,7 @@ var schemas = `{
 					"items": {
 						"description": "A set of fields that constitute the writable fields in an asset's state. name is mandatory along with at least one writable field. In this contract pattern, a partial state is used as an event.",
 						"properties": {
-							"tx_id": {
+							"txID": {
 								"description": "The ID of a managed asset. The resource focal point for a smart contract.",
 								"type": "string"
 							},							
@@ -76,7 +76,7 @@ var schemas = `{
 							}							
 						},
 						"required": [
-							"tx_id",
+							"txID",
 							"timestamp",
 							"issuing",
 							"receiver",
@@ -113,7 +113,7 @@ var schemas = `{
 					"items": {
 						"description": "An object containing only an name for use as an argument to read or delete.",
 						"properties": {
-							"tx_id": {
+							"txID": {
 								"description": "The ID of a managed asset. The resource focal point for a smart contract.",
 								"type": "string"
 							}
@@ -181,7 +181,7 @@ var schemas = `{
 					"items": {
 						"description": "An object containing only an name for use as an argument to read or delete.",
 						"properties": {
-							"tx_id": {
+							"txID": {
 								"description": "The ID of a managed asset. The resource focal point for a smart contract.",
 								"type": "string"
 							}
@@ -203,7 +203,7 @@ var schemas = `{
 				"result": {
 					"description": "A set of fields that constitute the complete asset state.",
 					"properties": {
-						"tx_id": {
+						"txID": {
 								"description": "The ID of a managed asset. The resource focal point for a smart contract.",
 								"type": "string"
 						},							
@@ -311,7 +311,7 @@ var schemas = `{
 					"items": {
 						"description": "A set of fields that constitute the writable fields in an asset's state. name is mandatory along with at least one writable field. In this contract pattern, a partial state is used as an event.",
 						"properties": {
-							"tx_id": {
+							"txID": {
 								"description": "The ID of a managed asset. The resource focal point for a smart contract.",
 								"type": "string"
 							},							
@@ -357,7 +357,7 @@ var schemas = `{
 							}
 						},
 						"required": [
-							"tx_id",
+							"txID",
 							"timestamp",
 							"issuing",
 							"receiver",
@@ -391,7 +391,7 @@ var schemas = `{
 		"deviceIDKey": {
 			"description": "An object containing only an name for use as an argument to read or delete.",
 			"properties": {
-				"tx_id": {
+				"txID": {
 					"description": "The ID of a managed asset. The resource focal point for a smart contract.",
 					"type": "string"
 				}
@@ -401,7 +401,7 @@ var schemas = `{
 		"event": {
 			"description": "A set of fields that constitute the writable fields in an asset's state. name is mandatory along with at least one writable field. In this contract pattern, a partial state is used as an event.",
 			"properties": {
-				"tx_id": {
+				"txID": {
 					"description": "The ID of a managed asset. The resource focal point for a smart contract.",
 					"type": "string"
 				},							
@@ -447,7 +447,7 @@ var schemas = `{
 				}
 			},
 			"required": [
-				"tx_id",
+				"txID",
 				"timestamp",
 				"issuing",
 				"receiver",
@@ -482,7 +482,7 @@ var schemas = `{
 		"state": {
 			"description": "A set of fields that constitute the complete asset state.",
 			"properties": {
-				"tx_id": {
+				"txID": {
 					"description": "The ID of a managed asset. The resource focal point for a smart contract.",
 					"type": "string"
 				},							

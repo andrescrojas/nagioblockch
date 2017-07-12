@@ -54,7 +54,7 @@ type ContractState struct {
 }
 
 type AssetState struct {
-    Tx_id        *string          `json:"tx_id,omitempty"`          // all assets must have an ID, primary key of contract  
+    TxID         *string          `json:"txID,omitempty"`           // all assets must have an ID, primary key of contract  
     Timestamp    *string          `json:"timestamp,omitempty"`      // asset timestamp
     Issuing      *string          `json:"issuing,omitempty"`        // asset issuing
     Receiver     *string          `json:"receiver,omitempty"`       // asset receiver
@@ -64,7 +64,7 @@ type AssetState struct {
     Issuer       *string          `json:"issuer,omitempty"`         // asset issuer
     Amount       *float64         `json:"amount,omitempty"`         // asset amount
     Currency     *float64         `json:"currency,omitempty"`       // asset currency
-    Origin       *string          `json:"origin,omitempty"`         // asset origin
+        Origin       *string          `json:"origin,omitempty"`         // asset origin
 }
 
 var contractState = ContractState{MYVERSION}

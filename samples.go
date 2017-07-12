@@ -22,7 +22,7 @@ package main
 var samples = `
 {
 	"event": {
-		"tx_id": "5465786412313",
+		"txID": "5465786412313",
 		"timestamp": "1499377900543",
 		"issuing": "na",
 		"receiver": "na",
@@ -39,7 +39,7 @@ var samples = `
 		"version": "1"
 	},
 	"state": {
-		"tx_id": "5465786412313",
+		"txID": "5465786412313",
 		"timestamp": "1499377900543",
 		"issuing": "na",
 		"receiver": "na",
