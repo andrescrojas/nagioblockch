@@ -33,13 +33,13 @@ var schemas = `{
 							"txID": {
 								"description": "The ID of a managed asset. The resource focal point for a smart contract.",
 								"type": "string"
-							},							
+							},
 							"timestamp": {
-								"description": "Datetime of the transaction",								
+								"description": "Datetime of the transaction",
 								"type": "string"
 							},
 							"issuing": {
-								"description": "Issuing of the transaction",								
+								"description": "Issuing of the transaction",
 								"type": "number"
 							},
 							"receiver": {
@@ -49,7 +49,7 @@ var schemas = `{
 							"type": {
 								"description": "Type of the transaction",
 								"type": "string"
-							}
+							},
 							"acquirer": {
 								"description": "Acquirer of the transaction",
 								"type": "string"
@@ -57,9 +57,9 @@ var schemas = `{
 							"acquirerBank": {
 								"description": "AcquirerBank of the transaction",
 								"type": "string"
-							},							
+							},
 							"issuer": {
-								"description": "Issuer of the transaction",								
+								"description": "Issuer of the transaction",
 								"type": "string"
 							},
 							"amount": {
@@ -73,10 +73,9 @@ var schemas = `{
 							"origin": {
 								"description": "Origin of the transaction",
 								"type": "string"
-							}							
+							}
 						},
-						"required": [
-							"txID",
+						"required": ["txID",
 							"timestamp",
 							"issuing",
 							"receiver",
@@ -96,9 +95,7 @@ var schemas = `{
 				},
 				"function": {
 					"description": "createAsset function",
-					"enum": [
-						"createAsset"
-					],
+					"enum": ["createAsset"],
 					"type": "string"
 				},
 				"method": "invoke"
@@ -126,9 +123,7 @@ var schemas = `{
 				},
 				"function": {
 					"description": "deleteAsset function",
-					"enum": [
-						"deleteAsset"
-					],
+					"enum": ["deleteAsset"],
 					"type": "string"
 				},
 				"method": "invoke"
@@ -153,9 +148,7 @@ var schemas = `{
 								"type": "string"
 							}
 						},
-						"required": [
-							"version"
-						],
+						"required": ["version"],
 						"type": "object"
 					},
 					"maxItems": 1,
@@ -164,9 +157,7 @@ var schemas = `{
 				},
 				"function": {
 					"description": "init function",
-					"enum": [
-						"init"
-					],
+					"enum": ["init"],
 					"type": "string"
 				},
 				"method": "deploy"
@@ -194,9 +185,7 @@ var schemas = `{
 				},
 				"function": {
 					"description": "readAsset function",
-					"enum": [
-						"readAsset"
-					],
+					"enum": ["readAsset"],
 					"type": "string"
 				},
 				"method": "query",
@@ -204,15 +193,15 @@ var schemas = `{
 					"description": "A set of fields that constitute the complete asset state.",
 					"properties": {
 						"txID": {
-								"description": "The ID of a managed asset. The resource focal point for a smart contract.",
-								"type": "string"
-						},							
+							"description": "The ID of a managed asset. The resource focal point for a smart contract.",
+							"type": "string"
+						},
 						"timestamp": {
-							"description": "Datetime of the transaction",								
+							"description": "Datetime of the transaction",
 							"type": "string"
 						},
 						"issuing": {
-							"description": "Issuing of the transaction",								
+							"description": "Issuing of the transaction",
 							"type": "number"
 						},
 						"receiver": {
@@ -222,7 +211,7 @@ var schemas = `{
 						"type": {
 							"description": "Type of the transaction",
 							"type": "string"
-						}
+						},
 						"acquirer": {
 							"description": "Acquirer of the transaction",
 							"type": "string"
@@ -230,9 +219,9 @@ var schemas = `{
 						"acquirerBank": {
 							"description": "AcquirerBank of the transaction",
 							"type": "string"
-						},							
+						},
 						"issuer": {
-							"description": "Issuer of the transaction",								
+							"description": "Issuer of the transaction",
 							"type": "string"
 						},
 						"amount": {
@@ -258,16 +247,16 @@ var schemas = `{
 			"properties": {
 				"args": {
 					"description": "accepts no arguments",
-					"items": {},
+					"items": {
+
+					},
 					"maxItems": 0,
 					"minItems": 0,
 					"type": "array"
 				},
 				"function": {
 					"description": "readAssetSamples function",
-					"enum": [
-						"readAssetSamples"
-					],
+					"enum": ["readAssetSamples"],
 					"type": "string"
 				},
 				"method": "query",
@@ -283,16 +272,16 @@ var schemas = `{
 			"properties": {
 				"args": {
 					"description": "accepts no arguments",
-					"items": {},
+					"items": {
+
+					},
 					"maxItems": 0,
 					"minItems": 0,
 					"type": "array"
 				},
 				"function": {
 					"description": "readAssetSchemas function",
-					"enum": [
-						"readAssetSchemas"
-					],
+					"enum": ["readAssetSchemas"],
 					"type": "string"
 				},
 				"method": "query",
@@ -314,13 +303,13 @@ var schemas = `{
 							"txID": {
 								"description": "The ID of a managed asset. The resource focal point for a smart contract.",
 								"type": "string"
-							},							
+							},
 							"timestamp": {
-								"description": "Datetime of the transaction",								
+								"description": "Datetime of the transaction",
 								"type": "string"
 							},
 							"issuing": {
-								"description": "Issuing of the transaction",								
+								"description": "Issuing of the transaction",
 								"type": "number"
 							},
 							"receiver": {
@@ -330,7 +319,7 @@ var schemas = `{
 							"type": {
 								"description": "Type of the transaction",
 								"type": "string"
-							}
+							},
 							"acquirer": {
 								"description": "Acquirer of the transaction",
 								"type": "string"
@@ -338,9 +327,9 @@ var schemas = `{
 							"acquirerBank": {
 								"description": "AcquirerBank of the transaction",
 								"type": "string"
-							},							
+							},
 							"issuer": {
-								"description": "Issuer of the transaction",								
+								"description": "Issuer of the transaction",
 								"type": "string"
 							},
 							"amount": {
@@ -356,8 +345,7 @@ var schemas = `{
 								"type": "string"
 							}
 						},
-						"required": [
-							"txID",
+						"required": ["txID",
 							"timestamp",
 							"issuing",
 							"receiver",
@@ -377,9 +365,7 @@ var schemas = `{
 				},
 				"function": {
 					"description": "updateAsset function",
-					"enum": [
-						"updateAsset"
-					],
+					"enum": ["updateAsset"],
 					"type": "string"
 				},
 				"method": "invoke"
@@ -404,13 +390,13 @@ var schemas = `{
 				"txID": {
 					"description": "The ID of a managed asset. The resource focal point for a smart contract.",
 					"type": "string"
-				},							
+				},
 				"timestamp": {
-					"description": "Datetime of the transaction",								
+					"description": "Datetime of the transaction",
 					"type": "string"
 				},
 				"issuing": {
-					"description": "Issuing of the transaction",								
+					"description": "Issuing of the transaction",
 					"type": "number"
 				},
 				"receiver": {
@@ -420,7 +406,7 @@ var schemas = `{
 				"type": {
 					"description": "Type of the transaction",
 					"type": "string"
-				}
+				},
 				"acquirer": {
 					"description": "Acquirer of the transaction",
 					"type": "string"
@@ -428,9 +414,9 @@ var schemas = `{
 				"acquirerBank": {
 					"description": "AcquirerBank of the transaction",
 					"type": "string"
-				},							
+				},
 				"issuer": {
-					"description": "Issuer of the transaction",								
+					"description": "Issuer of the transaction",
 					"type": "string"
 				},
 				"amount": {
@@ -446,8 +432,7 @@ var schemas = `{
 					"type": "string"
 				}
 			},
-			"required": [
-				"txID",
+			"required": ["txID",
 				"timestamp",
 				"issuing",
 				"receiver",
@@ -474,9 +459,7 @@ var schemas = `{
 					"type": "string"
 				}
 			},
-			"required": [
-				"version"
-			],
+			"required": ["version"],
 			"type": "object"
 		},
 		"state": {
@@ -485,13 +468,13 @@ var schemas = `{
 				"txID": {
 					"description": "The ID of a managed asset. The resource focal point for a smart contract.",
 					"type": "string"
-				},							
+				},
 				"timestamp": {
-					"description": "Datetime of the transaction",								
+					"description": "Datetime of the transaction",
 					"type": "string"
 				},
 				"issuing": {
-					"description": "Issuing of the transaction",								
+					"description": "Issuing of the transaction",
 					"type": "number"
 				},
 				"receiver": {
@@ -501,7 +484,7 @@ var schemas = `{
 				"type": {
 					"description": "Type of the transaction",
 					"type": "string"
-				}
+				},
 				"acquirer": {
 					"description": "Acquirer of the transaction",
 					"type": "string"
@@ -509,9 +492,9 @@ var schemas = `{
 				"acquirerBank": {
 					"description": "AcquirerBank of the transaction",
 					"type": "string"
-				},							
+				},
 				"issuer": {
-					"description": "Issuer of the transaction",								
+					"description": "Issuer of the transaction",
 					"type": "string"
 				},
 				"amount": {
