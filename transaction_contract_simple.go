@@ -106,7 +106,7 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
     // Handle different functions
     if function == "createAsset" {
-        // create name
+        // create txID
         return t.createAsset(stub, args)
     } else if function == "updateAsset" {
         // create assetID
@@ -170,7 +170,7 @@ func (t *SimpleChaincode) updateAsset(stub shim.ChaincodeStubInterface, args []s
 //******************** deleteAsset ********************/
 
 func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var name string // device ID
+    var txID string // device ID
     var err error
     var stateIn AssetState
 
@@ -179,9 +179,9 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
     if err != nil {
         return nil, err
     }
-    name = *stateIn.Name
+    txID = *stateIn.TxID
     // Delete the key / asset from the ledger
-    err = stub.DelState(name)
+    err = stub.DelState(txID)
     if err != nil {
         err = errors.New("DELSTATE failed! : " + fmt.Sprint(err))
         return nil, err
@@ -194,7 +194,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 //********************readAsset********************/
 
 func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var name string // device ID
+    var txID string // device ID
     var err error
     var state AssetState
 
@@ -203,9 +203,9 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
     if err != nil {
         return nil, errors.New("Asset does not exist!")
     }
-    name = *stateIn.Name
+    txID = *stateIn.TxID
     // Get the state from the ledger
-    assetBytes, err := stub.GetState(name)
+    assetBytes, err := stub.GetState(txID)
     if err != nil || len(assetBytes) == 0 {
         err = errors.New("Unable to get asset state from ledger")
         return nil, err
@@ -247,15 +247,15 @@ func (t *SimpleChaincode) readAssetSchemas(stub shim.ChaincodeStubInterface, arg
 // validate input data : common method called by the CRUD functions
 // ************************************
 func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err error) {
-    var name string                  // asset ID
+    var txID string                  // asset ID
     var state = AssetState{} // The calling function is expecting an object of type AssetState
 
     if len(args) != 1 {
-        err = errors.New("Incorrect number of arguments. Expecting a JSON strings with mandatory name")
+        err = errors.New("Incorrect number of arguments. Expecting a JSON strings with mandatory txID")
         return state, err
     }
     jsonData := args[0]
-    name = ""
+    txID = ""
     stateJSON := []byte(jsonData)
     err = json.Unmarshal(stateJSON, &stateIn)
     if err != nil {
@@ -263,14 +263,14 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
         return state, err
         // state is an empty instance of asset state
     }
-    // was name present?
+    // was txID present?
     // The nil check is required because the asset id is a pointer.
     // If no value comes in from the json input string, the values are set to nil
 
-    if stateIn.Name != nil {
-        name = strings.TrimSpace(*stateIn.Name)
-        if name == "" {
-            err = errors.New("Name not passed")
+    if stateIn.TxID != nil {
+        txID = strings.TrimSpace(*stateIn.TxID)
+        if txID == "" {
+            err = errors.New("TxID not passed")
             return state, err
         }
     } else {
@@ -278,14 +278,14 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
         return state, err
     }
 
-    stateIn.Name = &name
+    stateIn.TxID = &txID
     return stateIn, nil
 }
 
 //******************** createOrUpdateAsset ********************/
 
 func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var name string // asset ID                    // used when looking in map
+    var txID string // asset ID                    // used when looking in map
     var err error
     var stateIn AssetState
     var stateStub AssetState
@@ -296,10 +296,10 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     if err != nil {
         return nil, err
     }
-    name = *stateIn.Name
+    txID = *stateIn.TxID
     // Partial updates introduced here
     // Check if asset record existed in stub
-    assetBytes, err := stub.GetState(name)
+    assetBytes, err := stub.GetState(txID)
     if err != nil || len(assetBytes) == 0 {
         // This implies that this is a 'create' scenario
         stateStub = stateIn // The record that goes into the stub is the one that cme in
@@ -325,7 +325,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     // Get existing state from the stub
 
     // Write the new state to the ledger
-    err = stub.PutState(name, stateJSON)
+    err = stub.PutState(txID, stateJSON)
     if err != nil {
         err = errors.New("PUT ledger state failed: " + fmt.Sprint(err))
         return nil, err
